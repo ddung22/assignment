@@ -1,30 +1,21 @@
 package org.example
 
-
 fun main() {
-    var num1 = readLine()!!.toInt()
+    println("첫번째 숫자를 넣어주세요")
+    var num1 = readLine()!!.toDouble()
+    println("연산자를 넣어주세요")
     var operator = readLine().toString()
-    var num2 = readLine()!!.toInt()
+    println("2번째 숫자를 넣어주세요")
+    var num2 = readLine()!!.toDouble()
 
-    if (operator == "+") {
-        var sum = (num1 + num2)
-        println("결과값 = $sum")
-        // 덧셈일 때
-        // oprator 부분이 " -> " 큰따움표로 변경해주어야 한다
-    } else if (operator == "-") {
-        var difference = (num1 - num2)
-        println("결과값 = $difference")
-        // 뺄셈일 때
-    } else if (operator == "*") {
-        var product = (num1 * num2)
-        println("결과값 = $product")
-        // 곱셈일 때
-    } else if (operator == "/") {
-        var quotient = (num1 / num2)
-        println("결과값 = $quotient")
-
-    } else {
-        println("잘못된 연산자 입니다.")
-    }
-    // 잘못된 연산자 일 때
+    println(
+        when (operator) {
+            "+" -> num1 + num2
+            "-" -> num1 - num2
+            "*" -> num1 * num2
+            "/" -> num1 / num2
+            "%" -> num1 % num2
+            else -> "잘못된 계산 입니다."
+        }
+    )
 }
