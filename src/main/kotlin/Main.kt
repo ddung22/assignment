@@ -8,6 +8,4 @@ fun main() {
         mapOf("name" to "박코딩", "age" to 32),
     )
     println(people)
-
-
 }
