@@ -17,5 +17,10 @@ fun main() {
             "%" -> num1 % num2
             else -> "잘못된 계산 입니다."
         }
+        //연산자 "" 큰따움표 블럭으로 지정
     )
+}
+
+class caculater {
+
 }
