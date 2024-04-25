@@ -20,26 +20,63 @@ fun main() {
 //        }
 //        //연산자 "" 큰따움표 블럭으로 지정
 //    )
-    println("숫자 2개를 하나씩 입력 해주세요")
+
+    println("첫번째 숫자를 넣어주세요")
+    var num1 = readLine()!!.toDouble()
+    println("(+,-,*,/,%) 중 하나를 넣어주세요")
+    var op = readLine().toString()
+    println("두번째 숫자를 넣어주세요")
+    var num2 = readLine()!!.toDouble()
+
     val caculater = caculater()
+    caculater.num1 = num1
+    caculater.num2 = num2
     caculater.add()
     caculater.mynus()
     caculater.gob()
     caculater.nanu()
+    caculater.namuge()
+
+    println(
+        when (op) {
+            "+" -> caculater.add()
+            "-" -> caculater.mynus()
+            "*" -> caculater.gob()
+            "/" -> caculater.nanu()
+            "%" -> caculater.namuge()
+            else -> "잘못된 계산입니다."
+        }
+    )
+
 }
+
 class caculater {
-        var num1 : Double = readLine()!!.toDouble()
-        var num2 : Double = readLine()!!.toDouble()
-        fun add(){
-         println("${num1+num2}")
-        }
-        fun mynus(){
-            println("${num1-num2}")
-        }
-        fun gob(){
-        println("${num1*num2}")
+    var num1: Double = 0.0
+    var op = String()
+    var num2: Double = 0.0
+
+
+    fun add(): String {
+        return "${num1 + num2}"
     }
-        fun nanu(){
-        println("${num1/num2}")
+
+    fun mynus(): String {
+        return "${num1 - num2}"
+    }
+
+    fun gob(): String {
+        return "${num1 * num2}"
+    }
+
+    fun nanu(): String {
+        return "${num1 / num2}"
+    }
+
+    fun namuge(): String {
+        return "${num1 % num2}"
     }
 }
+
+
+//{} 는 만들어내는 소스
+//() 는 값을 넣어주는
