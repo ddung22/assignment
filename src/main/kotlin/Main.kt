@@ -1,11 +1,36 @@
 package org.example
 
 fun main() {
-    val people = listOf(
-        mapOf("name" to "김르탄", "age" to 27),
-        mapOf("name" to "이스파", "age" to 18),
-        mapOf("name" to "최개발", "age" to 54),
-        mapOf("name" to "박코딩", "age" to 32),
-    )
-    println(people)
+
+}
+
+class zealot(
+    val health: Int = 100,
+    val Attack: Int = 10,
+    val Armor: Int = 2
+) {
+
+    fun hit() {}
+    fun walk() {}
+
+}
+
+class Zergling(
+    val health: Int = 20,
+    val Attack: Int = 5,
+    val Armor: Int = 1
+) {
+
+    fun hit() {}
+    fun walk() {}
+}
+
+
+class Marin(
+    val health: Int = 40,
+    val Attack: Int = 6,
+    val Armor: Int = 1
+) {
+    fun hit() {}
+    fun walk() {}
 }
