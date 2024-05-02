@@ -2,11 +2,22 @@ package org.example
 
 
 fun main() {
-    println("나는 짐레이너 입니다.")
-    Marin().info()
+    var Zealot = Zealot()
+    var Zergling =Zergling()
+    var Marin =Marin()
+
+    var JimRaynor = Marin("JimRaynor","unique",200,19,3)
+    var Fenix = Zealot("Fenix","unique",480,22,3)
+    var DevouringOne = Zergling("DevouringOne","unique",120,10,4)
+
+    Marin().steampack("steampack 사용으로 hp가 10 마이너스 됬습니다.")
+
+
+
 }
 
 class Zealot(
+    var name: String = "Zealot",
     var grade: String = "Normal",
     var hp: Int = 100,
     var Atk: Int = 10,
@@ -36,6 +47,7 @@ class Zealot(
 }
 
 class Zergling(
+    var name: String = "Zergling",
     var grade: String = "Normal",
     var hp: Int = 20,
     var Atk: Int = 5,
@@ -66,7 +78,7 @@ class Zergling(
 }
 
 class Marin(
-    var name: String = readLine().toString(),
+    var name: String = "Marin",
     var grade: String = "Normal",
     var hp: Int = 40,
     var Atk: Int = 6,
@@ -81,9 +93,9 @@ class Marin(
         println("입력 값은 $test")
     }
 
-    fun test2(test2: String): Int {
-        println("입력 값은 $test2")
-        return 10
+    fun steampack(steampack: String): Int {
+        println("$steampack")
+        return hp - 10
     }
 
     fun info() {
@@ -94,5 +106,6 @@ class Marin(
         println("제 Armor는 ${Armor} 입니다.")
     }
 }
+
 
 
