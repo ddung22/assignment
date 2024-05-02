@@ -2,16 +2,38 @@ package org.example
 
 
 fun main() {
-    var Zealot = Zealot()
-    var Zergling =Zergling()
-    var Marin =Marin()
+    var zealot = Zealot()
+    var zergling =Zergling()
+    var marin =Marin()
 
-    var JimRaynor = Marin("JimRaynor","unique",200,19,3)
-    var Fenix = Zealot("Fenix","unique",480,22,3)
-    var DevouringOne = Zergling("DevouringOne","unique",120,10,4)
+    var JimRaynor = Marin("JimRaynor","hero",200,19,3)
+    var Fenix = Zealot("Fenix","hero",480,22,3)
+    var DevouringOne = Zergling("DevouringOne","hero",120,10,4)
 
-    Marin().steampack("steampack 사용으로 hp가 10 마이너스 됬습니다.")
 
+    println(
+        marin.steampack("steampack 사용으로 hp가 10 마이너스 됬습니다.")
+
+)
+    println(
+        marin.steampack("steampack 사용으로 hp가 10 마이너스 됬습니다.")
+
+    )
+    println(
+        marin.steampack("steampack 사용으로 hp가 10 마이너스 됬습니다.")
+
+    )
+
+    marin.info()
+    zergling.info()
+    zealot.info()
+
+    JimRaynor.info()
+    Fenix.info()
+    DevouringOne.info()
+    DevouringOne.walk()
+    DevouringOne.test("4")
+    DevouringOne.eat("4")
 
 
 }
@@ -63,8 +85,8 @@ class Zergling(
         println("입력 값은 $test")
     }
 
-    fun test2(test2: String): Int {
-        println("입력 값은 $test2")
+    fun eat(eat: String): Int {
+        println("입력 값은 $eat")
         return 10
     }
 
@@ -95,7 +117,8 @@ class Marin(
 
     fun steampack(steampack: String): Int {
         println("$steampack")
-        return hp - 10
+        hp -= 10
+        return hp
     }
 
     fun info() {
