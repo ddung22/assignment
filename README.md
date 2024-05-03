@@ -1,107 +1,174 @@
-# 코틀린 2주차 과제
+# 코틀린 2-2과제
 
-## (계산기 만들기)
+## (숫자야구 만들기)
 
 <br>
 
 ## 과제 내용 (요구사항)
->
- ## -  Lv1
-    - [ ]  더하기, 빼기, 나누기, 곱하기 연산을 수행할 수 있는 Calculator 클래스를 만들기
-    - [ ]  생성한 클래스를 이용하여 연산을 진행하고 출력하기
 
-## -  Lv2
-    - [ ]  Lv1에서 만든 Calculator 클래스에 “나머지 연산”이 가능하도록 코드를 추가하고, 연산 진행 후 출력
-    - [ ]  ex) 나머지 연산 예시 : 6을 3으로 나눈 나머지는 0 / 5를 3으로 나눈 나머지는 2
+## - 필수 구현 기능
 
-## -  Lv3
-    - [ ]  아래 각각 클래스들을 만들고 클래스간의 관계를 고려하여 Calculator 클래스와 관계 맺기
-        - [ ]  AddOperation(더하기)
-        - [ ]  SubstractOperation(빼기)
-        - [ ]  MultiplyOperation(곱하기)
-        - [ ]  DivideOperation(나누기)
-        - [ ]  관계를 맺은 후 필요하다면 Calculator 클래스의 내부코드를 변경
-    - [ ]  `HINT` : 매개변수로 클래스를 주고 받아 객체를 주입하는 것이 핵심!
+## - 입력
 
-### 선택 구현 기능
+    - 서로 다른 3자리수
+    - 게임 시작, 기록 보기, 종료를 구분하는 수 입력
+    - 필수 구현에서는 실행 시, 바로 게임 시작
+    - 선택 구현에서 시작, 기록, 종료 구분
 
-## -  Lv4
-    - [ ]  아래 연산 클래스들을 AbstractOperation라는 클래스명으로 만들어 사용하여 추상 클래스로 정의하고 Calculator 클래스의 내부 코드를 변경합니다.
-        - [ ]  AddOperation(더하기)
-        - [ ]  SubtractOperation(빼기)
-        - [ ]  MultiplyOperation(곱하기)
-        - [ ]  DivideOperation(나누기)
-    - [ ]  `HINT` : ‘상속’이라는 키워드로 찾아봅시다!
->
-## 현재 구현단계
-- lv2 까지 구현 완료
-- 더하기, 빼기, 곱하기, 나누기, 나머지 계산가능
-- lv3 각클래스 불러오는 단계 진행중
+## - 출력
 
-## 추후 개발(구현) 목표 
-- lv 3 ,4 까지 구현
-- 계산기 계산 끝난후 다시 처음으로 돌아가는 기능 
+    - 입력한 수에 대한 결과값을 “볼, 스트라이크, Nothing”으로 표시
 
-## 코드요약
+## - 요구사항
 
-+ ### 1 . 메인
-```
-  fun main() {
-    println("첫번째 숫자를 넣어주세요")
-    var num1 = readLine()!!.toDouble()
-    println("(+,-,*,/,%) 중 하나를 넣어주세요")
-    var op = readLine().toString()
-    println("두번째 숫자를 넣어주세요")
-    var num2 = readLine()!!.toDouble()
+    - 1에서 9까지의 서로 다른 임의의 수 3개를 정하고 맞추는 게임입니다
+    - 정답은 랜덤으로 만듭니다.(1에서 9까지의 서로 다른 임의의 수 3자리)
+    - 정답을 맞추기 위해 3자리수를 입력하고 힌트를 받습니다
+    - 힌트는 야구용어인 볼과 스트라이크입니다.
+
+    - 같은 자리에 같은 숫자가 있는 경우 스트라이크, 다른 자리에 숫자가 있는 경우 볼입니다.
     
-    val caculater = caculater()
-    caculater.num1 = num1
-    caculater.num2 = num2
-    caculater.add()
-    caculater.mynus()
-    caculater.gob()
-    caculater.nanu()
-    caculater.namuge()
+    - ex) 정답 : 456 인 경우
+    - 435를 입력한 경우 → 1스트라이크 1볼
+    - 357를 입력한 경우 → 1스트라이크
+    - 678를 입력한 경우 → 1볼
+    - 123를 입력한 경우 → Nothing
+    - 만약 올바르지 않은 입력값에 대해서는 오류 문구를 보여주세요.
+    - 3자리 숫자가 정답과 같은 경우 게임이 종료됩니다.   
 
-    println(
-        when (op) {
-            "+" -> caculater.add()
-            "-" -> caculater.mynus()
-            "*" -> caculater.gob()
-            "/" -> caculater.nanu()
-            "%" -> caculater.namuge()
-            else -> "잘못된 계산입니다."
+## 선택 구현 기능
+
+### 1번
+
+    - 프로그램을 시작할 때 안내문구를 보여주세요.
+    - 1번 게임 시작하기의 경우 “필수 구현 기능” 의 예시처럼 게임이 진행됩니다
+    - 정답을 맞혀 게임이 종료된 경우 위 안내문구를 다시 보여주세요
+       
+    // 예시
+        환영합니다! 원하시는 번호를 입력해주세요
+        1. 게임 시작하기  2. 게임 기록 보기  3. 종료하기
+        1 // 1번 게임 시작하기 입력
+
+        < 게임을 시작합니다 >
+        숫자를 입력하세요
+
+### 2번
+
+    -정답이 되는 숫자를 0에서 9까지의 서로 다른 3자리의 숫자로 바꿔주세요
+    
+    맨 앞자리에 0이 오는 것은 불가능합니다
+    092 → 불가능
+    870 → 가능
+    300 → 불가능
+
+### 3번
+
+    -실행 시, 2번 게임 기록 보기의 경우 완료한 게임들에 대해 시도 횟수를 보여줍니다.
+    
+    // 예시
+    환영합니다! 원하시는 번호를 입력해주세요
+    1. 게임 시작하기  2. 게임 기록 보기  3. 종료하기
+    
+    // 2번 게임 기록 보기 입력
+
+    < 게임 기록 보기 >
+    1번째 게임 : 시도 횟수 - 14
+    2번째 게임 : 시도 횟수 - 9
+    3번째 게임 : 시도 횟수 - 12
+    .
+    .
+
+### 4번
+
+    - 실행 시, 3번 종료하기의 경우 프로그램이 종료됩니다.
+    - 이전의 게임 기록들도 초기화됩니다.
+    
+    // 예시
+    환영합니다! 원하시는 번호를 입력해주세요
+    1. 게임 시작하기  2. 게임 기록 보기  3. 종료하기
+    3 // 3번 종료하기 입력
+
+    < 숫자 야구 게임을 종료합니다 >
+    맨 앞자리에 0이 오는 것은 불가능합니다
+    092 → 불가능
+    870 → 가능
+    300 → 불가능
+
+    - 1, 2, 3 이외의 입력값에 대해서는 오류 메시지를 보여주세요
+    
+    // 예시
+    환영합니다! 원하시는 번호를 입력해주세요
+    1. 게임 시작하기  2. 게임 기록 보기  3. 종료하기
+    4
+
+    올바른 숫자를 입력해주세요!
+
+>
+
+## 필수구현 부분 코드
+
+### 게임시작
+
+```
+fun main() {
+    val game = NumberBaseballGame()
+    val gamerule = Rule()
+    gamerule.rule()
+    game.start()
+}
+```
+
+### 서로 다른  3자리수를 랜덤으로 생성
+
+```
+fun CreateNumbers(): List<Int> {
+        val InputNumbers = mutableListOf<Int>()
+
+        while (InputNumbers.size < 3) {
+            val randomNumber = (1..9).random()
+            if (randomNumber !in InputNumbers) {
+                InputNumbers.add(randomNumber)
+            }
         }
-    )
-}
-    
+
+        return InputNumbers
+    }
 ```
 
-+ ### 2 . 클래스 (함수)
+### 입력한 수에 대한 결과값을 힌트 표시해주는 부분
+
 ```
-class caculater {
-var num1: Double = 0.0
-var op = String()
-var num2: Double = 0.0
+fun countStrikeBall(input: Int): Pair<Int, Int> {
+        var strike = 0
+        var ball = 0
+        val inputDigits = input.toString().toList()
+        val answerDigits = RandomNumbers.joinToString("").toList()
 
-    fun add(): String {
-        return "${num1 + num2}"
-    
-    fun mynus(): String {
-        return "${num1 - num2}"
+        for ((index, digit) in inputDigits.withIndex()) {
+            if (digit == answerDigits[index]) {
+                strike++
+            } else if (digit in answerDigits) {
+                ball++
+            }
+        }
+
+        return strike to ball
     }
+```
+### 랜덤 숫자를 만드는 코드 부분
+```
+fun CreateNumbers(): List<Int> {
+        val InputNumbers = mutableListOf<Int>()
 
-    fun gob(): String {
-        return "${num1 * num2}"
+        while (InputNumbers.size < 3) {
+            val randomNumber = (1..9).random()
+            if (randomNumber !in InputNumbers) {
+                InputNumbers.add(randomNumber)
+            }
+        }
+
+        return InputNumbers
     }
-
-    fun nanu(): String {
-        return "${num1 / num2}"
-
-    fun namuge(): String {
-        return "${num1 % num2}"
-    }
-}
 ```
 
 ## 환경설정
